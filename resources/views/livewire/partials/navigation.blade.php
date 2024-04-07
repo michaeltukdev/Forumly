@@ -1,12 +1,12 @@
-<nav @click.outside="open = false" x-data="{ open: false }" class="py-8 md:bg-transparent bg-container bg-opacity-60 transition-all" x-transition :class="{'bg-opacity-100': open, 'bg-opacity-80': !open }">
-    <div class="container mx-auto flex justify-between items-center px-4 sm:px-6 lg:px-8">
+<nav x-cloak @click.outside="open = false" x-data="{ open: false }" class="py-8 transition-all md:bg-transparent bg-container bg-opacity-60" x-transition :class="{'bg-opacity-80 shadow-lg': open, 'bg-opacity-100': !open }">
+    <div class="container flex items-center justify-between px-4 mx-auto sm:px-6 lg:px-8">
 
         <div class="flex items-center gap-8">
             <div class="flex justify-start">
-                <a href="#" class="nav-link" wire:navigate>Home</a>
+                <a href="#" class="nav-link" wire:navigate>{{ env('APP_NAME') }}</a>
             </div>
     
-            <ul class="hidden md:flex gap-8 items-center">
+            <ul class="items-center hidden gap-8 md:flex">
                 <li>
                     <a href="#" class="nav-link" wire:navigate>Home</a>
                 </li>
@@ -20,18 +20,18 @@
     
         </div>
 
-        <ul class="hidden md:flex gap-3 items-center">
-            <li>
-                <a href="#" class="nav-link flex gap-2.5 bg-container py-2.5 px-6 rounded-lg hover:bg-input transition hover:text-text-primary transition">@svg('heroicon-o-user', 'w-4') Sign In</a>
+        <ul class="items-center hidden gap-3 md:flex">
+            <li  @click="$dispatch('login-modal')">
+                <a href="#" class=" nav-link flex gap-2.5 bg-container py-2.5 px-6 rounded-lg hover:bg-input transition hover:text-text-primary transition">@svg('heroicon-o-user', 'w-4') Sign In</a>
             </li>
-            <li>
-                <a href="#" class="text-background flex gap-2.5 bg-tertiary py-2.5 px-6 rounded-lg hover:bg-text-primary transitio transition">@svg('heroicon-s-user', 'w-4') Sign Up</a>
+            <li @click="$dispatch('register-modal')">
+                <a href="#" class=" text-background flex gap-2.5 bg-tertiary py-2.5 px-6 rounded-lg hover:bg-text-primary transitio transition">@svg('heroicon-s-user', 'w-4') Sign Up</a>
             </li>
         </ul>
 
-        <button @click="open = !open" class="md:hidden flex items-center">
-            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path :class="{'hidden': open, 'block': !open }" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        <button @click="open = !open" class="flex items-center md:hidden">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path :class="{'hidden': open, 'block': !open }" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16 M4 12h16 M4 18h16" />
                 <path :class="{'block': open, 'hidden': !open }" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
         </button>
@@ -42,18 +42,18 @@
     x-transition:enter-end="transform opacity-100 scale-100" 
     x-transition:leave="transition ease-in duration-300" 
     x-transition:leave-start="transform opacity-100 scale-100" 
-    x-transition:leave-end="transform opacity-0 scale-95":class="{'block': open, 'hidden': !open}" class="md:hidden mt-6">
-        <ul class="px-4 pt-2 pb-4 space-y-5 sm:px-3">
-            <a href="#" class="nav-link block" wire:navigate>Home</a>
-            <a href="#" class="nav-link block" wire:navigate>Members</a>
-            <a href="#" class="nav-link block" wire:navigate>GitHub</a>
+    x-transition:leave-end="transform opacity-0 scale-95":class="{'block': open, 'hidden': !open}" class="mt-6 md:hidden">
+        <ul class="px-4 pt-2 pb-4 space-y-5 sm:px-6 lg:px-8">
+            <a href="#" class="block nav-link" wire:navigate>Home</a>
+            <a href="#" class="block nav-link" wire:navigate>Members</a>
+            <a href="#" class="block nav-link" wire:navigate>GitHub</a>
         </ul>
-        <ul class="flex px-4 gap-3 items-center mt-4">
-            <li class="w-full">
-                <a href="#" class="w-full justify-center nav-link flex gap-2.5 bg-input py-2.5 px-6 rounded-lg hover:bg-input-border transition hover:text-text-primary transition">@svg('heroicon-o-user', 'w-4') Sign In</a>
+        <ul class="flex items-center gap-3 px-4 mt-4 sm:px-6 lg:px-8">
+            <li @click="$dispatch('login-modal')" class="w-full">
+                <a href="#" class=" w-full justify-center nav-link flex gap-2.5 bg-input py-2.5 px-6 rounded-lg hover:bg-input-border transition hover:text-text-primary transition">@svg('heroicon-o-user', 'w-4') Sign In</a>
             </li>
-            <li class="w-full">
-                <a href="#" class="w-full justify-center text-background flex gap-2.5 bg-tertiary py-2.5 px-6 rounded-lg hover:bg-text-primary transitio transition">@svg('heroicon-s-user', 'w-4') Sign Up</a>
+            <li @click="$dispatch('register-modal')" class="w-full">
+                <a href="#" class=" w-full justify-center text-background flex gap-2.5 bg-tertiary py-2.5 px-6 rounded-lg hover:bg-text-primary transitio transition">@svg('heroicon-s-user', 'w-4') Sign Up</a>
             </li>
         </ul>
     </div>

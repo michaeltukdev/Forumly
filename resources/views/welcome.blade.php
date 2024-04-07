@@ -4,4 +4,6 @@
 
 @section('content')
 
+<div class="background"></div>
+
 @endsection

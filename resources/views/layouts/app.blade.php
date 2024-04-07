@@ -18,6 +18,12 @@
 
     <livewire:partials.navigation />
 
+    @guest
+        <livewire:partials.auth.register />
+
+        <livewire:partials.auth.login />
+    @endguest
+
     @yield('content')
 </body>
 

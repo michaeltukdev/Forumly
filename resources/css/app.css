@@ -9,3 +9,10 @@ body {
 .nav-link {
     @apply text-base font-thin text-text-secondary hover:text-primary transition
 }
+
+.background {
+    @apply absolute top-0 left-0 -z-10 w-full h-full max-h-[456px];
+    background: linear-gradient(0deg, #1D2127 0%, rgba(29, 33, 39, 0.60) 100%), url('http://127.0.0.1:8000/assets/background.png') lightgray 50% / cover no-repeat;
+}
+
+[x-cloak] { display: none !important; }
