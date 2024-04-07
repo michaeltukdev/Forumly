@@ -14,7 +14,10 @@
 
 </head>
 
-<body>
+<body class="bg-background text-text-primary">
+
+    <livewire:partials.navigation />
+
     @yield('content')
 </body>
 

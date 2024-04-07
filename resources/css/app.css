@@ -5,3 +5,7 @@
 body {
     font-family: 'Montserrat', sans-serif;
 }
+
+.nav-link {
+    @apply text-base font-thin text-text-secondary hover:text-primary transition
+}

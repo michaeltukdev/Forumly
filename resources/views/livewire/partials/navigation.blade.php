@@ -1,0 +1,60 @@
+<nav @click.outside="open = false" x-data="{ open: false }" class="py-8 md:bg-transparent bg-container bg-opacity-60 transition-all" x-transition :class="{'bg-opacity-100': open, 'bg-opacity-80': !open }">
+    <div class="container mx-auto flex justify-between items-center px-4 sm:px-6 lg:px-8">
+
+        <div class="flex items-center gap-8">
+            <div class="flex justify-start">
+                <a href="#" class="nav-link" wire:navigate>Home</a>
+            </div>
+    
+            <ul class="hidden md:flex gap-8 items-center">
+                <li>
+                    <a href="#" class="nav-link" wire:navigate>Home</a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link" wire:navigate>Members</a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link" wire:navigate>GitHub</a>
+                </li>
+            </ul>
+    
+        </div>
+
+        <ul class="hidden md:flex gap-3 items-center">
+            <li>
+                <a href="#" class="nav-link flex gap-2.5 bg-container py-2.5 px-6 rounded-lg hover:bg-input transition hover:text-text-primary transition">@svg('heroicon-o-user', 'w-4') Sign In</a>
+            </li>
+            <li>
+                <a href="#" class="text-background flex gap-2.5 bg-tertiary py-2.5 px-6 rounded-lg hover:bg-text-primary transitio transition">@svg('heroicon-s-user', 'w-4') Sign Up</a>
+            </li>
+        </ul>
+
+        <button @click="open = !open" class="md:hidden flex items-center">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path :class="{'hidden': open, 'block': !open }" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                <path :class="{'block': open, 'hidden': !open }" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+    </div>
+
+    <div x-show="open"     x-transition:enter="transition ease-out duration-300" 
+    x-transition:enter-start="transform opacity-0 scale-95" 
+    x-transition:enter-end="transform opacity-100 scale-100" 
+    x-transition:leave="transition ease-in duration-300" 
+    x-transition:leave-start="transform opacity-100 scale-100" 
+    x-transition:leave-end="transform opacity-0 scale-95":class="{'block': open, 'hidden': !open}" class="md:hidden mt-6">
+        <ul class="px-4 pt-2 pb-4 space-y-5 sm:px-3">
+            <a href="#" class="nav-link block" wire:navigate>Home</a>
+            <a href="#" class="nav-link block" wire:navigate>Members</a>
+            <a href="#" class="nav-link block" wire:navigate>GitHub</a>
+        </ul>
+        <ul class="flex px-4 gap-3 items-center mt-4">
+            <li class="w-full">
+                <a href="#" class="w-full justify-center nav-link flex gap-2.5 bg-input py-2.5 px-6 rounded-lg hover:bg-input-border transition hover:text-text-primary transition">@svg('heroicon-o-user', 'w-4') Sign In</a>
+            </li>
+            <li class="w-full">
+                <a href="#" class="w-full justify-center text-background flex gap-2.5 bg-tertiary py-2.5 px-6 rounded-lg hover:bg-text-primary transitio transition">@svg('heroicon-s-user', 'w-4') Sign Up</a>
+            </li>
+        </ul>
+    </div>
+</nav>
