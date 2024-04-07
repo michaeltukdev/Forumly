@@ -16,3 +16,11 @@ body {
 }
 
 [x-cloak] { display: none !important; }
+
+.primary-input-container {
+    @apply flex items-center px-3.5 mt-2.5 w-full rounded-md text-sm font-medium bg-input border border-input-border
+}
+
+.primary-input {
+    @apply flex-1 py-2.5 px-2.5 bg-input outline-none border-none text-sm font-medium focus:ring-0
+}
