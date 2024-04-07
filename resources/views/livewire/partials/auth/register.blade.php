@@ -53,7 +53,7 @@
 
             <div class="flex items-center gap-2 mt-5">
                 <input x-model="terms" id="default-checkbox" type="checkbox" value="" class="rounded-md bg-input hover:bg-primary checked:hover:bg-secondary checked:focus:bg-secondary border-input-border checked:bg-primary focus:bg-primary ring-0 focus:ring-0 focus:outline-none">
-                <label class="text-sm font-medium text-text-secondary" for="terms">I agree with the <a href="#" class="transition text-primary hover:text-secondary">Terms of Service</a> & <a href="#" class="transition text-primary hover:text-secondary">Privacy Policy</a></label>
+                <label class="text-sm font-medium text-text-secondary" for="terms">I agree with the <a href="{{ route('terms') }}" target="_blank" class="transition text-primary hover:text-secondary">Terms of Service</a> & <a href="{{ route('privacy') }}" target="_blank" class="transition text-primary hover:text-secondary">Privacy Policy</a></label>
             </div>
 
             <button class="text-base font-normal py-2.5 w-full rounded-lg bg-tertiary text-container mt-5 hover:bg-text-primary transition">Create Account</button>
