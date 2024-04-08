@@ -21,12 +21,14 @@
         </div>
 
         <ul class="items-center hidden gap-3 md:flex">
+            @guest
             <li  @click="$dispatch('login-modal')">
                 <a href="#" class=" nav-link flex gap-2.5 bg-container py-2.5 px-6 rounded-lg hover:bg-input transition hover:text-text-primary transition">@svg('heroicon-o-user', 'w-4') Sign In</a>
             </li>
             <li @click="$dispatch('register-modal')">
                 <a href="#" class=" text-background flex gap-2.5 bg-tertiary py-2.5 px-6 rounded-lg hover:bg-text-primary transitio transition">@svg('heroicon-s-user', 'w-4') Sign Up</a>
             </li>
+            @endguest
         </ul>
 
         <button @click="open = !open" class="flex items-center md:hidden">

@@ -1,8 +1,10 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 
-Route::view('/', 'welcome');
+Route::view('/', 'welcome')->name('home');
 
 Route::view('terms', 'pages.public.terms')
     ->name('terms');
@@ -10,12 +12,10 @@ Route::view('terms', 'pages.public.terms')
 Route::view('privacy', 'pages.public.privacy')
     ->name('privacy');
 
-Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
+Route::get('/logout', function () {
+    Auth::guard('web')->logout();
 
-Route::view('profile', 'profile')
-    ->middleware(['auth'])
-    ->name('profile');
-
-require __DIR__.'/auth.php';
+    Session::invalidate();
+    Session::regenerateToken();
+    return redirect('/');
+})->name('logout');

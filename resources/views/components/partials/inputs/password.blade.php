@@ -12,4 +12,6 @@
             <template x-if="reveal">@svg('heroicon-o-eye-slash', 'h-5 ml-3.5 text-primary')</template>
         </button>
     </div>
+
+    @error($label) <span class="text-xs text-red-400">{{ $message }}</span> @enderror
 </div>
