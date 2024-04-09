@@ -7,8 +7,7 @@
 @section('content')
 
 <div class="container px-6 py-8 mx-auto">
-    <h3 class="text-2xl font-medium">All Users</h3>
-    <p class="mt-2 text-text-secondary">Creat and manage all your users!</p>
+    <x-partials.panel.page-title title="Users" description="Manage your users here." />
 </div>
 
 @endsection

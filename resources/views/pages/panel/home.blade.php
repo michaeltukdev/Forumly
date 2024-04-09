@@ -7,8 +7,7 @@
 @section('content')
 
 <div class="container px-6 py-8 mx-auto">
-    <h3 class="text-2xl font-medium">Dashboard</h3>
-    <p class="mt-2 text-text-secondary">Welcome to your dashboard!</p>
+    <x-partials.panel.page-title title="Dashboard" description="Welcome to your dashboard." />
     
     <div class="grid grid-cols-1 gap-6 mt-8 lg:grid-cols-3">
         

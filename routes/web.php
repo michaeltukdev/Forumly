@@ -35,8 +35,8 @@ Route::post('/email/verification-notification', function (Request $request) {
 
 // Control panel
 
-Route::group(['middleware' => ['auth', 'can:panel access']], function () {
-    Route::get('/panel', [PanelController::class, 'home'])->name('panel');
+Route::group(['prefix' => 'panel', 'middleware' => ['auth', 'can:panel access']], function () {
+    Route::get('/', [PanelController::class, 'home'])->name('panel');
 
-    Route::get('/panel/users', [PanelController::class, 'users'])->name('panel.users');
+    Route::get('/users', [PanelController::class, 'users'])->name('panel.users');
 });
