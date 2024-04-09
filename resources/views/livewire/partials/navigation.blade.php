@@ -51,10 +51,10 @@
             <a href="#" class="block nav-link" wire:navigate>GitHub</a>
         </ul>
         <ul class="flex items-center gap-3 px-4 mt-4 sm:px-6 lg:px-8">
-            <li @click="$dispatch('login-modal')" class="w-full">
+            <li @click="$dispatch('login-modal'); open = false" class="w-full">
                 <a href="#" class=" w-full justify-center nav-link flex gap-2.5 bg-input py-2.5 px-6 rounded-lg hover:bg-input-border transition hover:text-text-primary transition">@svg('heroicon-o-user', 'w-4') Sign In</a>
             </li>
-            <li @click="$dispatch('register-modal')" class="w-full">
+            <li @click="$dispatch('register-modal'); open = false" class="w-full">
                 <a href="#" class=" w-full justify-center text-background flex gap-2.5 bg-tertiary py-2.5 px-6 rounded-lg hover:bg-text-primary transitio transition">@svg('heroicon-s-user', 'w-4') Sign Up</a>
             </li>
         </ul>

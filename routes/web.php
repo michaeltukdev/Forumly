@@ -1,35 +1,25 @@
 <?php
 
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
+use Spatie\Permission\Models\Permission;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
-
-Auth::routes(['verify' => true]);
 
 Route::view('/', 'welcome')->name('home');
 
-Route::view('terms', 'pages.public.terms')
-    ->name('terms')->middleware('verified');
+Route::view('/terms', 'pages.public.terms')->name('terms');
 
-Route::view('privacy', 'pages.public.privacy')
-    ->name('privacy');
+Route::view('privacy', 'pages.public.privacy')->name('privacy');
 
-Route::get('/logout', function () {
-    Auth::guard('web')->logout();
-
-    Session::invalidate();
-    Session::regenerateToken();
-    return redirect('/');
-})->name('logout');
+Route::get('/logout', function (Request $request) { Auth::logout(); $request->session()->invalidate(); $request->session()->regenerateToken(); return redirect('/'); })->name('logout');
 
 
+// Auth Routes
 
-
-Route::get('/email/verify',function(){
-    return view('email.verification-notice');
-})->middleware('auth')->name('verification.notice');
+Route::view('/email/verify', 'email.verification.notice')->middleware('auth')->name('verification.notice');
 
 Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
     $request->fulfill();
@@ -40,3 +30,10 @@ Route::post('/email/verification-notification', function (Request $request) {
     $request->user()->sendEmailVerificationNotification();
     return back()->with('message', 'Verification link sent!');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+
+
+// Control panel
+
+Route::group(['middleware' => ['auth', 'can:panel access']], function () {
+    Route::view('/panel', 'pages.panel.home')->name('panel');
+});

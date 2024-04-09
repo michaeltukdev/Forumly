@@ -27,7 +27,7 @@ class Login extends Component
         $this->validate();
 
         if (Auth::attempt(['email' => $this->email, 'password' => $this->password])) {
-            return redirect()->intended('/');
+            return redirect()->route('home');
         }
 
         $this->addError('email', 'These credentials do not match our records.');
