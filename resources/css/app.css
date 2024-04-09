@@ -1,3 +1,5 @@
+@import url(https://fonts.bunny.net/css?family=montserrat:100,100i,200,300,400,500,600,700,800,900);
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -23,4 +25,16 @@ body {
 
 .primary-input {
     @apply flex-1 py-2.5 px-2.5 bg-input outline-none border-none text-sm font-medium focus:ring-0
+}
+
+.sidebar-links::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 5%;
+    bottom: 0;
+    width: 1px;
+    margin-left: 25px; 
+    height: 90%;
+    @apply bg-input-border
 }
