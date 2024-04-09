@@ -6,28 +6,14 @@
     
     <nav class="px-4 space-y-2">
         <span class="text-xs tracking-wider uppercase font-base text-text-secondary">Navigation</span>
-        <a href="#" class="p-2.5 hover:bg-input rounded-lg flex items-center gap-2 text-base text-text-secondary">
+        <a wire:navigate href="{{ route('panel') }}" class="p-2.5 hover:bg-input rounded-lg flex items-center gap-2 text-base text-text-secondary">
             @svg('heroicon-o-squares-2x2', 'h-6')
             Overview
         </a>
 
         @can('manage users')
-            <div x-data="{ open: false }">
-                <button x-on:click="open = !open"
-                    class="p-2.5 w-full hover:bg-input rounded-lg flex items-center justify-between text-text-secondary">
-                    <span class="flex gap-2">@svg('heroicon-o-user', 'h-6') Users </span>
-
-                    <span :class="{ 'rotate-180': open }">
-                        @svg('heroicon-o-chevron-down', 'h-4')
-                    </span>
-                </button>
-
-                <div x-transition.scale.origin.top x-cloak x-show="open"
-                    class="py-2.5 px-[50px] sidebar-links space-y-4 relative">
-                    <a class="block text-sm transition text-text-secondary hover:text-primary" href="#">Users</a>
-                    <a class="block text-sm transition text-text-secondary hover:text-primary" href="#">Banned Users</a>
-                </div>
-            </div>
+            <livewire:partials.panel.sidebar-dropdown label="Users" icon="heroicon-o-user" :items="['Users' => route('panel.users'), 'Add New' => '/users/create']"  />
         @endcan
+        
     </nav>
 </div>
