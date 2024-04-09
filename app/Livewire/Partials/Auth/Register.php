@@ -4,19 +4,21 @@ namespace App\Livewire\Partials\Auth;
 
 use App\Models\User;
 use Livewire\Component;
+use Illuminate\Mail\Message;
 use Livewire\Attributes\Validate;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Auth\Events\Registered;
 
 class Register extends Component
 {
-    #[Validate] 
+    #[Validate]
     public $email = '';
 
-    #[Validate] 
+    #[Validate]
     public $username = '';
 
-    #[Validate] 
+    #[Validate]
     public $password = '';
 
     #[Validate]
@@ -25,7 +27,7 @@ class Register extends Component
     #[Validate]
     public $legal = false;
 
-    public function rules() 
+    public function rules()
     {
         return [
             'email' => 'required|email|unique:users,email',
