@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Panel\PanelController;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Auth;
@@ -35,5 +36,5 @@ Route::post('/email/verification-notification', function (Request $request) {
 // Control panel
 
 Route::group(['middleware' => ['auth', 'can:panel access']], function () {
-    Route::view('/panel', 'pages.panel.home')->name('panel');
+    Route::get('/panel', [PanelController::class, 'home'])->name('panel');
 });
