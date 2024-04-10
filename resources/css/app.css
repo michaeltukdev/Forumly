@@ -9,7 +9,7 @@ body {
 }
 
 .nav-link {
-    @apply text-base font-thin text-text-secondary hover:text-primary transition
+    @apply text-base text-text-secondary hover:text-primary transition
 }
 
 .background {

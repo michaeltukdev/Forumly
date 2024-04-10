@@ -3,7 +3,7 @@
 
         <div class="flex items-center gap-8">
             <div class="flex justify-start">
-                <a href="#" class="nav-link" wire:navigate>{{ env('APP_NAME') }}</a>
+                <img class="h-8" src="{{ asset('assets/branding/logowithname.png') }}" alt="{{ env('APP_NAME') }}">
             </div>
     
             <ul class="items-center hidden gap-8 md:flex">
@@ -29,6 +29,15 @@
                 <a href="#" class=" text-background flex gap-2.5 bg-tertiary py-2.5 px-6 rounded-lg hover:bg-text-primary transitio transition">@svg('heroicon-s-user', 'w-4') Sign Up</a>
             </li>
             @endguest
+            
+            @auth
+            <li class="relative flex items-center gap-2" x-data="{ open: false }">
+                <img src="{{ asset('assets/branding/logowithoutname.png') }}" alt="{{ auth()->user()->username }}" class="w-6 w-10 rounded">
+                <a x-on:click="open = !open" class="flex items-center gap-1 cursor-pointer nav-link">{{ auth()->user()->username }} <span :class="{ 'rotate-180': open }"> @svg('heroicon-o-chevron-down', 'h-4') </span></a>
+                
+                @livewire('partials.dropdown')
+            </li>
+            @endauth
         </ul>
 
         <button @click="open = !open" class="flex items-center md:hidden">
@@ -51,12 +60,23 @@
             <a href="#" class="block nav-link" wire:navigate>GitHub</a>
         </ul>
         <ul class="flex items-center gap-3 px-4 mt-4 sm:px-6 lg:px-8">
+            @guest
             <li @click="$dispatch('login-modal'); open = false" class="w-full">
                 <a href="#" class=" w-full justify-center nav-link flex gap-2.5 bg-input py-2.5 px-6 rounded-lg hover:bg-input-border transition hover:text-text-primary transition">@svg('heroicon-o-user', 'w-4') Sign In</a>
             </li>
             <li @click="$dispatch('register-modal'); open = false" class="w-full">
                 <a href="#" class=" w-full justify-center text-background flex gap-2.5 bg-tertiary py-2.5 px-6 rounded-lg hover:bg-text-primary transitio transition">@svg('heroicon-s-user', 'w-4') Sign Up</a>
             </li>
+            @endguest
+
+            @auth
+            <li class="relative flex items-center gap-2" x-data="{ open: false }">
+                <img src="{{ asset('assets/branding/logowithoutname.png') }}" alt="{{ auth()->user()->username }}" class="w-6 w-10 rounded">
+                <a x-on:click="open = !open" class="flex items-center gap-1 cursor-pointer nav-link">{{ auth()->user()->username }} <span :class="{ 'rotate-180': open }"> @svg('heroicon-o-chevron-down', 'h-4') </span></a>
+                
+                @livewire('partials.dropdown')
+            </li>
+            @endauth
         </ul>
     </div>
 </nav>
