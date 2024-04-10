@@ -13,13 +13,14 @@ class PanelController extends Controller
     {
         $memberTotal = User::count();
 
-        $latestUsers = User::all()->take(5);
+        $latestUsers = User::latest()->take(5)->get();
 
         return view('pages.panel.home', ['memberTotal' => $memberTotal, 'latestUsers' => $latestUsers]);
     }
 
     public function users()
     {
+
         return view('pages.panel.users');
     }
 }

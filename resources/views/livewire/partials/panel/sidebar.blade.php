@@ -6,7 +6,7 @@
     
     <nav class="px-4 space-y-2">
         <span class="text-xs tracking-wider uppercase font-base text-text-secondary">Navigation</span>
-        <a wire:navigate href="{{ route('panel') }}" class="p-2.5 hover:bg-input rounded-lg flex items-center gap-2 text-base text-text-secondary">
+        <a wire:navigate href="{{ route('panel') }}" class="p-2.5 rounded-lg flex items-center gap-2 text-base text-text-secondary">
             @svg('heroicon-o-squares-2x2', 'h-6')
             Overview
         </a>

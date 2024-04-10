@@ -38,3 +38,15 @@ body {
     height: 90%;
     @apply bg-input-border
 }
+
+.table-title {
+    @apply px-4 py-2 font-medium text-text-primary whitespace-nowrap;
+}
+
+.table-item {
+    @apply px-4 py-2 text-text-secondary whitespace-nowrap;
+}
+
+.tag {
+    @apply px-2.5 py-1 bg-primary rounded bg-opacity-40 text-primary border border-primary
+}
