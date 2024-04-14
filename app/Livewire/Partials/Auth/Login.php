@@ -27,6 +27,8 @@ class Login extends Component
         $this->validate();
 
         if (Auth::attempt(['email' => $this->email, 'password' => $this->password])) {
+            session()->flash('alert', ['type' => 'success', 'message' => 'Welcome back! You have been logged in!']);
+
             return redirect()->route('home');
         }
 

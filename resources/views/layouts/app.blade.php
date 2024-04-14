@@ -16,15 +16,21 @@
 
 <body class="bg-background text-text-primary">
 
-    <livewire:partials.navigation />
+    <div class="background"></div>
+
+    @livewire('partials.navigation')
 
     @guest
-        <livewire:partials.auth.register />
+        @livewire('partials.auth.register')
 
-        <livewire:partials.auth.login />
+        @livewire('partials.auth.login')
     @endguest
 
     @yield('content')
+
+    @if(session('alert'))
+            @livewire('alerts')
+    @endif
 </body>
 
 </html>

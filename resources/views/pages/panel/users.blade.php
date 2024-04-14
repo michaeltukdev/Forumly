@@ -8,6 +8,6 @@
     <div class="container px-6 py-8 mx-auto">
         <x-partials.panel.page-title title="Users" description="Manage your users here." />
 
-        @livewire('partials.panels.tables.users')
+        @livewire('partials.panel.tables.users')
     </div>
 @endsection

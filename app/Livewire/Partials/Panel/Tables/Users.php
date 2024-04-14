@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Partials\Panels\Tables;
+namespace App\Livewire\Partials\Panel\Tables;
 
 use App\Models\User;
 use Livewire\Component;
@@ -23,6 +23,6 @@ class Users extends Component
 
         $users = $usersQuery->paginate(13);
 
-        return view('livewire.partials.panels.tables.users', compact('users'));
+        return view('livewire.partials.panel.tables.users', compact('users'));
     }
 }

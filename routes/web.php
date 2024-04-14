@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Panel\PanelController;
+use App\Http\Controllers\Public\RoutesController;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Auth;
@@ -9,14 +10,13 @@ use Illuminate\Support\Facades\Session;
 use Spatie\Permission\Models\Permission;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
-Route::view('/', 'welcome')->name('home');
+Route::get('/', [RoutesController::class, 'home'])->name('home');
 
 Route::view('/terms', 'pages.public.terms')->name('terms');
 
 Route::view('privacy', 'pages.public.privacy')->name('privacy');
 
-Route::get('/logout', function (Request $request) { Auth::logout(); $request->session()->invalidate(); $request->session()->regenerateToken(); return redirect('/'); })->name('logout');
-
+// Route::get('/profile/{user}', [PanelController::class, 'profile'])->name('profile');
 
 // Auth Routes
 
@@ -31,6 +31,14 @@ Route::post('/email/verification-notification', function (Request $request) {
     $request->user()->sendEmailVerificationNotification();
     return back()->with('message', 'Verification link sent!');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+
+Route::get('/logout', function (Request $request) {
+    Auth::logout();
+    $request->session()->invalidate();
+    $request->session()->regenerateToken();
+    session()->flash('alert', ['type' => 'success', 'message' => 'See you soon! You have been logged out!']);
+    return redirect('/');
+})->name('logout');
 
 
 // Control panel
