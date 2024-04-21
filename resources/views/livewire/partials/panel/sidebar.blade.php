@@ -18,11 +18,10 @@
             @endcan
 
             @can('manage users')
-                <livewire:partials.panel.sidebar-dropdown label="Forums" icon="heroicon-o-user" :items="['Users' => route('panel.users'), 'Add New' => '/users/create']" />
-            @endcan
-
-            @can('manage users')
-                <livewire:partials.panel.sidebar-dropdown label="Roles" icon="heroicon-o-user" :items="['Users' => route('panel.users'), 'Add New' => '/users/create']" />
+                <livewire:partials.panel.sidebar-dropdown label="Forums" icon="heroicon-o-rectangle-stack"
+                    :items="[
+                        'Categories' => route('panel.forums.categories'),
+                    ]" />
             @endcan
         </nav>
     </div>
