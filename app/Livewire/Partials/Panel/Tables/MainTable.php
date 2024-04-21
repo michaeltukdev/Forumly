@@ -24,7 +24,7 @@ class MainTable extends Component
         $this->model = $model;
         $this->columns = $columns;
         $this->searchColumn = $searchColumn;
-        $this->sortColumn = $sortColumn ?: $searchColumn;
+        $this->sortColumn = $sortColumn;
         $this->sortDirection = $sortDirection;
         $this->specialFormats = $specialFormats;
     }

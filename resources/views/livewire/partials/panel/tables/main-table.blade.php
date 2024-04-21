@@ -2,7 +2,7 @@
     <div>
         <form wire:submit.prevent>
             <input wire:model.live="search" placeholder="Search..." class="mt-4 text-sm border rounded shadow-none bg-input border-input-border focus:ring-0 focus:outline-none" type="text">
-            @if($sortColumn)
+            @if(isset($sortColumn))
             <select wire:model.live="sortDirection" class="mt-4 text-sm border rounded shadow-none bg-input border-input-border focus:ring-0 focus:outline-none">
                 <option value="desc">Descending</option>
                 <option value="asc">Ascending</option>
@@ -39,7 +39,7 @@
             </table>
         </div>
         <div class="flex items-center justify-between px-4 py-2 border-t rounded-b-lg border-input-border">
-            Showing Results
+            <p class="text-sm text-text-secondary">Showing Results</p>
             {{ $data->links() }}
         </div>
     </div>
