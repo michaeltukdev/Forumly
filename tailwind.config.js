@@ -1,5 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  safelist: [
+    'border-error',
+    'border-success'
+  ],
   content: [
     './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
     './storage/framework/views/*.php',
@@ -31,6 +35,8 @@ export default {
         'text-secondary': '#B5B5B5',
         'container': '#272C34',
         'tertiary': '#E5E5E5',
+        'error': '#FF9E9E',
+        'success': '#A0FF9E',
       },
     },
   },

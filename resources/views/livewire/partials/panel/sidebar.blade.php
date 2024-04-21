@@ -16,10 +16,20 @@
             @can('manage users')
                 <livewire:partials.panel.sidebar-dropdown label="Users" icon="heroicon-o-user" :items="['Users' => route('panel.users'), 'Add New' => '/users/create']" />
             @endcan
+
+            @can('manage users')
+                <livewire:partials.panel.sidebar-dropdown label="Forums" icon="heroicon-o-user" :items="['Users' => route('panel.users'), 'Add New' => '/users/create']" />
+            @endcan
+
+            @can('manage users')
+                <livewire:partials.panel.sidebar-dropdown label="Roles" icon="heroicon-o-user" :items="['Users' => route('panel.users'), 'Add New' => '/users/create']" />
+            @endcan
         </nav>
     </div>
 
     <div class="px-4 py-6">
-        <a wire:navigate class="px-2.5 w-full bg-input-border rounded-lg justify-center flex items-center gap-2 py-2 text-text-secondary" href="{{ route('home') }}">Exit Panel</a>
+        <a wire:navigate
+            class="px-2.5 w-full bg-input-border rounded-lg justify-center flex items-center gap-2 py-2 text-text-secondary"
+            href="{{ route('home') }}">Exit Panel</a>
     </div>
 </div>

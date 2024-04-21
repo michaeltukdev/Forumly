@@ -31,6 +31,7 @@
     @if(session('alert'))
             @livewire('alerts')
     @endif
+        
 </body>
 
 </html>
