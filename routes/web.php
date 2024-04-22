@@ -51,6 +51,7 @@ Route::group(['prefix' => 'panel', 'middleware' => ['auth', 'can:panel access']]
 
     Route::get('/forums/categories', [PanelController::class, 'forumCategories'])->name('panel.forums.categories')->middleware('can:manage forum categories');
     Route::get('/forums/categories/create', [PanelController::class, 'forumCategoriesCreate'])->name('panel.forums.categories.create')->middleware('can:manage forum categories');
+    Route::get('/forums/categories/edit/{category}', [PanelController::class, 'forumCategoriesEdit'])->name('panel.forums.categories.edit')->middleware('can:manage forum categories');
 
 
 });

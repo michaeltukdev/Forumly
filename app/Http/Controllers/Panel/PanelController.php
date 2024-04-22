@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Panel;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\ForumCategories;
 use Illuminate\Support\Carbon;
 
 class PanelController extends Controller
@@ -31,5 +32,10 @@ class PanelController extends Controller
     public function forumCategoriesCreate()
     {
         return view('pages.panel.forums.createcategories');
+    }
+
+    public function forumCategoriesEdit(ForumCategories $category)
+    {
+        return view('pages.panel.forums.editcategories', ['category' => $category]);
     }
 }

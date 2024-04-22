@@ -24,7 +24,7 @@
                     @foreach ($data as $item)
                         <tr>
                             @foreach($columns as $key => $label)
-                                <td class="table-item">
+                                <td class="py-4 table-item">
                                     @if(array_key_exists($key, $specialFormats) && $specialFormats[$key] === 'diffForHumans')
                                         {{ $item->$key->diffForHumans() }}
                                     @else
@@ -32,6 +32,11 @@
                                     @endif
                                 </td>
                             @endforeach
+                                @if($edit)
+                                <td class="py-4">
+                                    <a class="px-6 py-2 text-sm transition rounded-lg bg-input-border hover:bg-secondary text-text-primary" href="{{ route($edit, $item) }}">Edit</a>
+                                </td>
+                                @endif
                         </tr>
                     @endforeach
                 </tbody>

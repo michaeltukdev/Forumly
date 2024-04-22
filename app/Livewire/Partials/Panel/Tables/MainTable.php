@@ -16,10 +16,11 @@ class MainTable extends Component
     public $sortDirection = 'desc';
     public $search = '';
     public $specialFormats;
+    public $edit;
 
     protected $queryString = ['search', 'sortColumn', 'sortDirection'];
 
-    public function mount($model, $columns, $searchColumn = null, $sortColumn = null, $sortDirection = 'desc', $specialFormats = [])
+    public function mount($model, $columns, $searchColumn = null, $sortColumn = null, $sortDirection = 'desc', $specialFormats = [], $edit = null)
     {
         $this->model = $model;
         $this->columns = $columns;
@@ -27,6 +28,7 @@ class MainTable extends Component
         $this->sortColumn = $sortColumn;
         $this->sortDirection = $sortDirection;
         $this->specialFormats = $specialFormats;
+        $this->edit = $edit;
     }
     
 
@@ -46,7 +48,7 @@ class MainTable extends Component
             $query->orderBy($this->sortColumn, $this->sortDirection);
         }
 
-        $data = $query->paginate(14);
+        $data = $query->paginate(10);
 
         return view('livewire.partials.panel.tables.main-table', [
             'data' => $data,
