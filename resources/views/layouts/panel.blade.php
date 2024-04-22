@@ -34,5 +34,9 @@
         <main class="flex-1 overflow-x-hidden overflow-y-auto bg-background">@yield('content')</main>
 
     </div>
+
+    @if(session('alert'))
+        @livewire('alerts')
+    @endif
 </body>
 </html>

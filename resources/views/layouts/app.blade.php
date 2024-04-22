@@ -14,7 +14,7 @@
 
 </head>
 
-<body class="bg-background text-text-primary">
+<body class="pb-20 bg-background text-text-primary">
 
     <div class="background"></div>
 

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Panel\PanelController;
 use App\Http\Controllers\Public\RoutesController;
+use App\Livewire\Partials\Panel\Forms\CreateCategory;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Auth;
@@ -47,4 +48,9 @@ Route::group(['prefix' => 'panel', 'middleware' => ['auth', 'can:panel access']]
     Route::get('/', [PanelController::class, 'home'])->name('panel');
 
     Route::get('/users', [PanelController::class, 'users'])->name('panel.users');
+
+    Route::get('/forums/categories', [PanelController::class, 'forumCategories'])->name('panel.forums.categories')->middleware('can:manage forum categories');
+    Route::get('/forums/categories/create', [PanelController::class, 'forumCategoriesCreate'])->name('panel.forums.categories.create')->middleware('can:manage forum categories');
+
+
 });

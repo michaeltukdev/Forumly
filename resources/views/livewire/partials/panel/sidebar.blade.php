@@ -17,10 +17,11 @@
                 <livewire:partials.panel.sidebar-dropdown label="Users" icon="heroicon-o-user" :items="['Users' => route('panel.users'), 'Add New' => '/users/create']" />
             @endcan
 
-            @can('manage users')
+            @can('manage forum categories')
                 <livewire:partials.panel.sidebar-dropdown label="Forums" icon="heroicon-o-rectangle-stack"
                     :items="[
                         'Categories' => route('panel.forums.categories'),
+                        'Create Category' => route('panel.forums.categories.create'),
                     ]" />
             @endcan
         </nav>
