@@ -17,13 +17,19 @@ class RolesAndPermissionsSeeder extends Seeder
         // Start by clearing the Spatie permissions cache
         app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
 
-        // Creating all permissions
-        Permission::create(['name' => 'panel access']);
-        Permission::create(['name' => 'manage users']);
-        Permission::create(['name' => 'manage roles']);
+        $permissions = [
+            'panel access',
+            'manage users',
+            'manage roles',
+            'manage forum categories',
+        ];     
+
+        foreach ($permissions as $permission) {
+            Permission::findOrCreate($permission);
+        }
 
         // Creating "Owner" role
-        $role = Role::create(['name' => 'owner']);
+        $role = Role::firstOrCreate(['name' => 'owner']);
         $role->givePermissionTo(Permission::all());
     }
 }

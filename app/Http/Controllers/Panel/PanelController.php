@@ -27,4 +27,9 @@ class PanelController extends Controller
     {
         return view('pages.panel.forums.categories');
     }
+
+    public function forumCategoriesCreate()
+    {
+        return view('pages.panel.forums.createcategories');
+    }
 }
