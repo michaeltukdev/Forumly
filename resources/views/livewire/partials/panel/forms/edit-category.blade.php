@@ -6,9 +6,9 @@
         </div>
         <div class="grid grid-cols-2 gap-5 p-8">
 
-            <x-partials.inputs.primary label="name" placeholder="Category Name" type="text" />
+            <x-partials.inputs.primary inputName="name" label="name" placeholder="Category Name" type="text" />
 
-            <x-partials.inputs.primary label="slug" placeholder="Category Slug" type="text" />
+            <x-partials.inputs.primary inputName="slug" label="slug" placeholder="Category Slug" type="text" />
 
             <x-partials.inputs.textarea label="summary" placeholder="Enter your category summary..." />
 

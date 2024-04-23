@@ -4,16 +4,16 @@
             <form wire:submit.prevent="register" @submit.prevent="console.log('submitted')" @click.away="open = false" class="bg-[#23272F] max-w-[460px] p-8 w-full rounded-lg space-y-5">
             
                 <!-- Form Field: Username -->
-                <x-partials.inputs.primary label="username" svg="heroicon-o-user" placeholder="Username"  />
+                <x-partials.inputs.primary inputName="username" label="username" svg="heroicon-o-user" placeholder="Username"  />
     
                 <!-- Form Field: Email -->
-                <x-partials.inputs.primary label="email" svg="heroicon-o-envelope" placeholder="Email" type="email"  />
+                <x-partials.inputs.primary inputName="email" label="email" svg="heroicon-o-envelope" placeholder="Email" type="email"  />
     
                 <!-- Form Field: Password -->
-                <x-partials.inputs.password label="password" />
+                <x-partials.inputs.password inputName="password" label="password" />
     
                 <!-- Form Field: Password Confirmation -->
-                <x-partials.inputs.password label="password Confirmation" isConfirmation />
+                <x-partials.inputs.password inputName="password_confirmation" label="Password Confirmation" isConfirmation />
     
                 <!-- Terms of Service Checkbox -->
                 <div class="flex items-center gap-2 mt-5">  

@@ -11,6 +11,7 @@ class Primary extends Component
     public function __construct(
         public string $type = 'text',
         public string $label = '',
+        public string $inputName = '',
         public string $svg = '',
         public string $placeholder = 'test',
     ) {}

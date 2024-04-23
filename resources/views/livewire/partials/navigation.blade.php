@@ -8,7 +8,7 @@
     
             <ul class="items-center hidden gap-8 md:flex">
                 <li>
-                    <a href="#" class="nav-link" wire:navigate>Home</a>
+                    <a href="{{ route('home') }}" class="nav-link" wire:navigate>Home</a>
                 </li>
                 <li>
                     <a href="#" class="nav-link" wire:navigate>Members</a>

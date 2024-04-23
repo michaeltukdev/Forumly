@@ -4,10 +4,10 @@
             <div @click.away="open = false" class="bg-[#23272F] p-8 w-full rounded-lg space-y-5">
 
                 <!-- Form Field: Email -->
-                <x-partials.inputs.primary label="email" svg="heroicon-o-envelope" placeholder="Email" type="email"  />
+                <x-partials.inputs.primary label="Email" inputName="email" svg="heroicon-o-envelope" placeholder="Email" type="email"  />
     
                 <!-- Form Field: Password -->
-                <x-partials.inputs.password label="password" />
+                <x-partials.inputs.password inputname="password" label="Password" />
 
                 <!-- Account Creation Button -->
                 <button type="submit" class="text-base font-normal py-2.5 w-full rounded-lg bg-tertiary text-container mt-5 hover:bg-text-primary transition">Sign In</button>
