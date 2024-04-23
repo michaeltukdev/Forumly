@@ -46,12 +46,11 @@ Route::get('/logout', function (Request $request) {
 
 Route::group(['prefix' => 'panel', 'middleware' => ['auth', 'can:panel access']], function () {
     Route::get('/', [PanelController::class, 'home'])->name('panel');
-
     Route::get('/users', [PanelController::class, 'users'])->name('panel.users');
 
-    Route::get('/forums/categories', [PanelController::class, 'forumCategories'])->name('panel.forums.categories')->middleware('can:manage forum categories');
-    Route::get('/forums/categories/create', [PanelController::class, 'forumCategoriesCreate'])->name('panel.forums.categories.create')->middleware('can:manage forum categories');
-    Route::get('/forums/categories/edit/{category}', [PanelController::class, 'forumCategoriesEdit'])->name('panel.forums.categories.edit')->middleware('can:manage forum categories');
-
-
+    Route::group(['prefix' => 'forums/categories', 'middleware' => ['can:manage forum categories']], function () {
+        Route::get('/', [PanelController::class, 'forumCategories'])->name('panel.forums.categories');
+        Route::get('/create', [PanelController::class, 'forumCategoriesCreate'])->name('panel.forums.categories.create');
+        Route::get('/edit/{category}', [PanelController::class, 'forumCategoriesEdit'])->name('panel.forums.categories.edit');
+    });
 });
