@@ -1,23 +1,23 @@
 <?php
 
-use App\Http\Controllers\Panel\PanelController;
-use App\Http\Controllers\Public\RoutesController;
-use App\Livewire\Partials\Panel\Forms\CreateCategory;
 use Illuminate\Http\Request;
-use Spatie\Permission\Models\Role;
+use App\Livewire\Pages\Public\Home;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Session;
-use Spatie\Permission\Models\Permission;
+use App\Livewire\Pages\Public\Settings;
+use App\Http\Controllers\Panel\PanelController;
+use App\Http\Controllers\Public\RoutesController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
-Route::get('/', [RoutesController::class, 'home'])->name('home');
+Route::get('/', Home::class)->name('home');
 
 Route::view('/terms', 'pages.public.terms')->name('terms');
 
 Route::view('privacy', 'pages.public.privacy')->name('privacy');
 
-// Route::get('/profile/{user}', [PanelController::class, 'profile'])->name('profile');
+Route::group(['middleware' => 'auth'], function () {
+    // Route::get('/profile/{user}', [PanelController::class, 'profile'])->name('profile');
+});
 
 // Auth Routes
 

@@ -5,12 +5,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{{ env('APP_NAME') }} - @yield('title')</title>
+    <title>{{ env('APP_NAME') }} - {{ $title }}</title>
 
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=montserrat" rel="stylesheet" />
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    @livewireStyles()
 
 </head>
 
@@ -26,12 +28,13 @@
         @livewire('partials.auth.login')
     @endguest
 
-    @yield('content')
+    {{ $slot }}
 
     @if(session('alert'))
             @livewire('alerts')
     @endif
-        
+       
+    @livewireScripts()
 </body>
 
 </html>
