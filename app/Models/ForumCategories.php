@@ -16,4 +16,9 @@ class ForumCategories extends Model
         'slug',
         'summary',
     ];
+
+    public function forums()
+    {
+        return $this->hasMany(Forums::class, 'category_id', 'id');
+    }
 }

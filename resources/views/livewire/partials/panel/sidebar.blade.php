@@ -22,6 +22,8 @@
                     :items="[
                         'Categories' => route('panel.forums.categories'),
                         'Create Category' => route('panel.forums.categories.create'),
+                        'Forums' => route('panel.forums'),
+                        'Create Forum' => route('panel.forums.create'),
                     ]" />
             @endcan
         </nav>

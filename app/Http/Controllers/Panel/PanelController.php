@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\ForumCategories;
+use App\Models\Forums;
 use Illuminate\Support\Carbon;
 
 class PanelController extends Controller
@@ -24,6 +25,21 @@ class PanelController extends Controller
         return view('pages.panel.users');
     }
 
+    public function forums()
+    {
+        return view('pages.panel.forums.forums');
+    }
+
+    public function forumsCreate()
+    {
+        return view('pages.panel.forums.create');
+    }
+
+    public function forumsEdit(Forums $forums)
+    {
+        return view('pages.panel.forums.editforum', ['forum' => $forums]);
+    }
+    
     public function forumCategories()
     {
         return view('pages.panel.forums.categories');
