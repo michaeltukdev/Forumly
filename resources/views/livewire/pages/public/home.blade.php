@@ -9,7 +9,7 @@
                 <div class="p-8 space-y-8">
                     @foreach ($category->forums as $forum)
                         <div>
-                            <a href="" class="flex items-center gap-4">
+                            <a wire:navigate href="{{ route('forums', $forum->slug) }}" class="flex items-center gap-4">
                                 <div class="p-3 border rounded-lg bg-container border-input-border">
                                     @svg($forum->icon, 'w-5 h-5')
                                 </div>

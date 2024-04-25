@@ -7,7 +7,7 @@
 @section('content')
     <div class="container px-6 py-8 mx-auto">
         <div class="flex items-center justify-between mb-8">
-            <x-partials.panel.page-title title="Edit Forum Category" description="Edit a forum." />
+            <x-partials.panel.page-title title="Edit Forum" description="Edit a forum." />
         </div>
 
         <livewire:partials.panel.forms.edit-forum :$forum />
