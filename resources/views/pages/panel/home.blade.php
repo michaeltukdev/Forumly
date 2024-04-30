@@ -11,9 +11,10 @@
     
     <div class="grid grid-cols-1 gap-6 mt-8 lg:grid-cols-3">
         
+
         <x-partials.panel.widget title="Total Members" value="{{ $memberTotal }}" icon="heroicon-o-user-group" color="bg-green-300" />
 
-        <x-partials.panel.widget title="Total Threads" value="{{ $memberTotal }}" icon="heroicon-o-clipboard-document-list" color="bg-blue-300" />
+        <x-partials.panel.widget title="Total Threads" value="{{ $threadsTotal }}" icon="heroicon-o-clipboard-document-list" color="bg-blue-300" />
         
         <x-partials.panel.widget title="Total Replies" value="{{ $memberTotal }}" icon="heroicon-o-chat-bubble-bottom-center-text" color="bg-purple-300" />
 
@@ -25,21 +26,18 @@
             </div>
 
             <div class="flex flex-col gap-5 p-6">
-                
                 @foreach ($latestUsers as $user)
-                <a class="group" href="#">
-                    <div class="flex items-center gap-2">
-                        <img draggable="false" class="w-10" alt="Users avatar" src="{{ asset('assets/branding/logowithoutname.png') }}">
-                        <div class="text-sm text-text-secondary">
-                            <p class="font-medium transition text-text-primary group-hover:text-primary">{{ $user->username }}</p>
-                            <p>Registered {{ $user->created_at->diffForHumans() }}</p>
-                        </div>
+                <a class="flex items-center gap-2 group" href="#">
+                    <img draggable="false" class="w-10" alt="Users avatar" src="{{ asset('assets/branding/logowithoutname.png') }}">
+                    <div class="text-sm text-text-secondary">
+                        <p class="font-medium transition text-text-primary group-hover:text-primary">{{ $user->username }}</p>
+                        <p>Registered {{ $user->created_at->diffForHumans() }}</p>
                     </div>
                 </a>
                 @endforeach
-                
             </div>
         </div>
+                
     </div>
 </div>
 

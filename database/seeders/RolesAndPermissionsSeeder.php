@@ -18,6 +18,7 @@ class RolesAndPermissionsSeeder extends Seeder
         app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
 
         $permissions = [
+            'create threads',
             'panel access',
             'manage users',
             'manage roles',

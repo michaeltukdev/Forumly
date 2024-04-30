@@ -3,11 +3,12 @@
 namespace App\Http\Controllers\Panel;
 
 use App\Models\User;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Models\ForumCategories;
 use App\Models\Forums;
+use App\Models\Threads;
+use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use App\Models\ForumCategories;
+use App\Http\Controllers\Controller;
 
 class PanelController extends Controller
 {
@@ -15,9 +16,15 @@ class PanelController extends Controller
     {
         $memberTotal = User::count();
 
+        $threads = Threads::count();
+
         $latestUsers = User::latest()->take(5)->get();
 
-        return view('pages.panel.home', ['memberTotal' => $memberTotal, 'latestUsers' => $latestUsers]);
+        return view('pages.panel.home', [
+            'memberTotal' => $memberTotal,
+            'latestUsers' => $latestUsers,
+            'threadsTotal' => $threads
+        ]);
     }
 
     public function users()

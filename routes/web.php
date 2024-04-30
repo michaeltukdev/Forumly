@@ -5,6 +5,7 @@ use App\Livewire\Pages\Public\Home;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Panel\PanelController;
+use App\Livewire\Pages\Public\CreateThread;
 use App\Livewire\Pages\Public\Forums;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
@@ -15,6 +16,10 @@ Route::view('/terms', 'pages.public.terms')->name('terms');
 Route::view('privacy', 'pages.public.privacy')->name('privacy');
 
 Route::get('/forums/{slug}', Forums::class)->name('forums');
+
+Route::group(['middleware' => 'auth', 'can: create threads'], function () {
+    Route::get('/forums/{slug}/create-thread', CreateThread::class)->name('forums.create-thread');
+});
 
 
 
