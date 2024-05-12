@@ -1,7 +1,7 @@
 <div class="breadcrumbs">
     <ol class="flex overflow-hidden transition border rounded-lg text-text-secondary border-input-border">
         <li class="flex items-center">
-            <a wire:navigate href="{{ route('panel') }}" class="flex h-10 items-center gap-1.5 bg-input-border px-4 transition hover:text-primary">
+            <a wire:navigate.hover href="{{ route('panel') }}" class="flex h-10 items-center gap-1.5 bg-input-border px-4 transition hover:text-primary">
                 @svg('heroicon-s-home', 'w-4 h-4')
 
                 <span class="ms-1.5 text-xs font-medium"> Panel </span>
@@ -14,7 +14,7 @@
             </span>
 
             @foreach($path as $path => $url)
-                <a wire:navigate href="{{ route($url) }}" class="flex items-center h-10 text-xs font-medium transition bg-input pe-4 ps-8 hover:text-primary">{{ $path }}</a>
+                <a wire:navigate.hover href="{{ route($url) }}" class="flex items-center h-10 text-xs font-medium transition bg-input pe-4 ps-8 hover:text-primary">{{ $path }}</a>
             @endforeach
         </li>
     </ol>

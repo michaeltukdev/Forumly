@@ -8,13 +8,13 @@
     
             <ul class="items-center hidden gap-8 md:flex">
                 <li>
-                    <a href="{{ route('home') }}" class="nav-link" wire:navigate>Home</a>
+                    <a href="{{ route('home') }}" class="nav-link" wire:navigate.hover>Home</a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link" wire:navigate>Members</a>
+                    <a href="#" class="nav-link" wire:navigate.hover>Members</a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link" wire:navigate>GitHub</a>
+                    <a href="#" class="nav-link" wire:navigate.hover>GitHub</a>
                 </li>
             </ul>
     
@@ -55,9 +55,9 @@
     x-transition:leave-start="transform opacity-100 scale-100" 
     x-transition:leave-end="transform opacity-0 scale-95":class="{'block': open, 'hidden': !open}" class="mt-6 md:hidden">
         <ul class="px-4 pt-2 pb-4 space-y-5 sm:px-6 lg:px-8">
-            <a href="#" class="block nav-link" wire:navigate>Home</a>
-            <a href="#" class="block nav-link" wire:navigate>Members</a>
-            <a href="#" class="block nav-link" wire:navigate>GitHub</a>
+            <a href="#" class="block nav-link" wire:navigate.hover>Home</a>
+            <a href="#" class="block nav-link" wire:navigate.hover>Members</a>
+            <a href="#" class="block nav-link" wire:navigate.hover>GitHub</a>
         </ul>
         <ul class="flex items-center gap-3 px-4 mt-4 sm:px-6 lg:px-8">
             @guest

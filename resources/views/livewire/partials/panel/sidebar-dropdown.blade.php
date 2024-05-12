@@ -10,7 +10,7 @@
 
     <div x-transition.scale.origin.top x-cloak x-show="open" class="py-2.5 px-[50px] sidebar-links space-y-4 relative">
         @foreach($items as $label => $route)
-            <a wire:navigate class="block text-sm transition text-text-secondary hover:text-primary" href="{{ $route }}">{{ $label }}</a>
+            <a wire:navigate.hover class="block text-sm transition text-text-secondary hover:text-primary" href="{{ $route }}">{{ $label }}</a>
         @endforeach
     </div>
 </div>

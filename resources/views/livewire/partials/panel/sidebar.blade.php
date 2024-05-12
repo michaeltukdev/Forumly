@@ -7,7 +7,7 @@
 
         <nav class="px-4 py-6 space-y-2">
             <span class="text-xs tracking-wider uppercase font-base text-text-secondary">Navigation</span>
-            <a wire:navigate href="{{ route('panel') }}"
+            <a wire:navigate.hover href="{{ route('panel') }}"
                 class="p-2.5 rounded-lg flex items-center gap-2 text-base text-text-secondary">
                 @svg('heroicon-o-squares-2x2', 'h-6')
                 Overview
@@ -30,7 +30,7 @@
     </div>
 
     <div class="px-4 py-6">
-        <a wire:navigate
+        <a wire:navigate.hover
             class="px-2.5 w-full bg-input-border rounded-lg justify-center flex items-center gap-2 py-2 text-text-secondary"
             href="{{ route('home') }}">Exit Panel</a>
     </div>

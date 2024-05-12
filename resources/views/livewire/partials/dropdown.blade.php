@@ -3,21 +3,21 @@
     <ul class="w-full space-y-3">
         <li>
             <a href="#" class="block text-sm transition text-text-secondary hover:text-text-primary"
-                wire:navigate>Profile</a>
+                wire:navigate.hover>Profile</a>
         </li>
         <li>
             <a href="#" class="block text-sm transition text-text-secondary hover:text-text-primary"
-                wire:navigate>Settings</a>
+                wire:navigate.hover>Settings</a>
         </li>
         @can('panel access')
             <li>
                 <a href="{{ route('panel') }}" class="block text-sm transition text-text-secondary hover:text-text-primary"
-                    wire:navigate>Control Panel</a>
+                    wire:navigate.hover>Control Panel</a>
             </li>
         @endcan
         <li>
             <a href="{{ route('logout') }}" class="block text-sm text-red-300 transition hover:text-red-400"
-                wire:navigate>Logout</a>
+                wire:navigate.hover>Logout</a>
         </li>
     </ul>
 </div>
