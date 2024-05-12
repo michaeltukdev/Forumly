@@ -13,19 +13,19 @@ use Illuminate\Auth\Events\Registered;
 class Register extends Component
 {
     #[Validate]
-    public $email = '';
+    public String $email = '';
 
     #[Validate]
-    public $username = '';
+    public String $username = '';
 
     #[Validate]
-    public $password = '';
+    public String $password = '';
 
     #[Validate]
-    public $password_confirmation = '';
+    public String $password_confirmation = '';
 
     #[Validate]
-    public $legal = false;
+    public bool $legal = false;
 
     public function rules()
     {
@@ -61,7 +61,7 @@ class Register extends Component
 
         Auth::login($user);
 
-        return redirect()->route('home');
+        return $this->redirectRoute('home');
     }
 
     public function render()

@@ -9,10 +9,10 @@ use Illuminate\Support\Facades\Auth;
 class Login extends Component
 {
     #[Validate] 
-    public $email = '';
+    public String $email = '';
 
     #[Validate] 
-    public $password = '';
+    public String $password = '';
 
     public function rules()
     {
@@ -29,7 +29,7 @@ class Login extends Component
         if (Auth::attempt(['email' => $this->email, 'password' => $this->password])) {
             session()->flash('alert', ['type' => 'success', 'message' => 'Welcome back! You have been logged in!']);
 
-            return redirect()->route('home');
+            return $this->redirectRoute('home');
         }
 
         $this->addError('email', 'These credentials do not match our records.');

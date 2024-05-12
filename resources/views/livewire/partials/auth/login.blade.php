@@ -4,7 +4,7 @@
             <div @click.away="open = false" class="bg-[#23272F] p-8 w-full rounded-lg space-y-5">
 
                 <!-- Form Field: Email -->
-                <x-partials.inputs.primary label="Email" inputName="email" svg="heroicon-o-envelope" placeholder="Email" type="email"  />
+                <x-partials.inputs.primary label="email" inputName="email" svg="heroicon-o-envelope" placeholder="Email" type="email"  />
     
                 <!-- Form Field: Password -->
                 <x-partials.inputs.password inputname="password" label="Password" />
