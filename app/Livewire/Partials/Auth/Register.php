@@ -9,9 +9,14 @@ use Livewire\Attributes\Validate;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Auth\Events\Registered;
+use Illuminate\Validation\ValidationException;
+use DanHarrin\LivewireRateLimiting\WithRateLimiting;
+use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 
 class Register extends Component
 {
+    use WithRateLimiting;
+
     #[Validate]
     public String $email = '';
 
@@ -51,6 +56,14 @@ class Register extends Component
 
     public function register()
     {
+        try {
+            $this->rateLimit(0);
+        } catch (TooManyRequestsException $exception) {
+            throw ValidationException::withMessages([
+                'legal' => "Slow down! Please wait another {$exception->secondsUntilAvailable} seconds to register.",
+            ]);
+        }
+        
         $this->validate();
 
         $user = User::create([

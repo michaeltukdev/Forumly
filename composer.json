@@ -9,6 +9,7 @@
         "blade-ui-kit/blade-heroicons": "^2.3",
         "blade-ui-kit/blade-icons": "^1.6",
         "coduo/php-humanizer": "^5.0",
+        "danharrin/livewire-rate-limiting": "*",
         "laravel/framework": "^11.0",
         "laravel/tinker": "^2.9",
         "laravel/ui": "^4.5",

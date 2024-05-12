@@ -19,6 +19,8 @@
                 </div>
             </div>
         
+            @error('create')<p class="mt-4 text-xs text-red-400">{{ $message }}</p>@enderror
+
             <button type="submit" class="py-2 bg-primary px-2.5 rounded-md mt-4 text-background">Create Category</button>
         </form>
     </div>

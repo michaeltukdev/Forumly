@@ -4,11 +4,16 @@ namespace App\Livewire\Pages\Public;
 
 use App\Models\Forums;
 use App\Models\Threads;
-use Livewire\Attributes\Validate;
 use Livewire\Component;
+use Livewire\Attributes\Validate;
+use Illuminate\Validation\ValidationException;
+use DanHarrin\LivewireRateLimiting\WithRateLimiting;
+use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 
 class CreateThread extends Component
 {
+    use WithRateLimiting;
+
     public Forums $forum;
 
     #[Validate()]
@@ -44,8 +49,16 @@ class CreateThread extends Component
 
     public function create()
     {
+        try {
+            $this->rateLimit(1);
+        } catch (TooManyRequestsException $exception) {
+            throw ValidationException::withMessages([
+                'create' => "Slow down! Please wait another {$exception->secondsUntilAvailable} seconds to log in.",
+            ]);
+        }
+
         $this->validate();
-        
+
         Threads::create([
             'title' => $this->title,
             'content' => $this->content,
