@@ -7,7 +7,7 @@ use App\Models\Forums as ModelsForums;
 
 class Forums extends Component
 {
-    public $forum = '';
+    public ModelsForums $forum;
 
     public function mount($slug)
     {
@@ -16,7 +16,7 @@ class Forums extends Component
 
     public function render()
     {
-        return view('livewire.pages.public.forums', ['forum' => $this->forum])
+        return view('livewire.pages.public.forums')
             ->layout('layouts.app', [
                 'title' => $this->forum->name,
             ]);
