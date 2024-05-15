@@ -1,5 +1,5 @@
 <div x-cloak x-data="{ open: false }"  @register-modal.window="open = true">
-    <div x-show="open" class="absolute top-0 left-0 flex items-center justify-center w-full h-full bg-black bg-opacity-30">
+    <div x-show="open" class="absolute top-0 left-0 z-20 flex items-center justify-center w-full h-full backdrop-blur-md">
         <div x-transition x-show="open" class="w-full max-w-[460px] ">
             <form wire:submit.prevent="register" @submit.prevent="console.log('submitted')" @click.away="open = false" class="bg-[#23272F] max-w-[460px] p-8 w-full rounded-lg space-y-5">
             
